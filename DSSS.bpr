@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="DSSS.exe"/>
+    <OBJFILES value="DSSS.obj About.obj ComplexFIR.obj DefineButton.obj Options.obj Palette.obj 
+      Preferences.obj PTT.obj Unit1.obj Varicode.obj Receiver.obj DelayLine.obj 
+      SoundCard.obj PLL.obj ..\DSP_Library\GoodFFT.obj 
+      ..\Sequences\Sequences.obj Transmitter.obj Debug.obj Logger32.obj"/>
+    <RESFILES value="DSSS.res MANIFEST.res ResourceFile.res"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) About.dfm DefineButton.dfm Preferences.dfm Unit1.dfm"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="dclusr.lib vcldb.lib dbrtl.lib vclx.lib vcl.lib rtl.lib"/>
+    <SPARELIBS value="rtl.lib vcl.lib vclx.lib dbrtl.lib vcldb.lib dclusr.lib"/>
+    <PACKAGES value="vcl.bpi rtl.bpi dbrtl.bpi adortl.bpi vcldb.bpi vclx.bpi bdertl.bpi 
+      vcldbx.bpi ibxpress.bpi dsnap.bpi cds.bpi bdecds.bpi qrpt.bpi teeui.bpi 
+      teedb.bpi tee.bpi dss.bpi teeqr.bpi visualclx.bpi visualdbclx.bpi 
+      dsnapcrba.bpi dsnapcon.bpi bcbsmp.bpi vclie.bpi xmlrtl.bpi inet.bpi 
+      inetdbbde.bpi inetdbxpress.bpi inetdb.bpi nmfast.bpi webdsnap.bpi 
+      bcbie.bpi websnap.bpi soaprtl.bpi dclocx.bpi dbexpress.bpi dbxcds.bpi 
+      indy.bpi bcb2kaxserver.bpi"/>
+    <PATHCPP value=".;..\DSP_Library;..\Sequences"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value=""/>
+    <SYSDEFINES value="NO_STRICT"/>
+    <MAINSOURCE value="DSSS.cpp"/>
+    <INCLUDEPATH value="..\Stream;..\HRV;..\Sequences;..\DSP_Library;$(BCB)\include;$(BCB)\include\vcl;C:\Documenti\C++\Components"/>
+    <LIBPATH value="..\Stream;..\HRV;..\Sequences;..\DSP_Library;..\Prova;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-I..\Stream -I..\HRV -I..\Sequences -I..\DSP_Library -I$(BCB)\include 
+      -I$(BCB)\include\vcl -IC:\Documenti\C++\Components -src_suffix cpp -boa"/>
+    <CFLAG1 value="-O2 -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -xp -ff -X- -a8 -5 -b- -k- -vi -c 
+      -tW -tWM"/>
+    <PFLAGS value="-$Y- -$L- -$D- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zn"/>
+    <LFLAGS value="-D&quot;&quot; -H:0x200000 -S:0x200000 -aa -Tpe -x"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="DSSS.res" FORMNAME="" UNITNAME="DSSS.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="DSSS.cpp" FORMNAME="" UNITNAME="DSSS" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="About.cpp" FORMNAME="FormAbout" UNITNAME="About" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ComplexFIR.cpp" FORMNAME="" UNITNAME="ComplexFIR.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="DefineButton.cpp" FORMNAME="FormDefineButton" UNITNAME="DefineButton" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Options.cpp" FORMNAME="" UNITNAME="Options.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Palette.cpp" FORMNAME="" UNITNAME="Palette.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Preferences.cpp" FORMNAME="FormSetup" UNITNAME="Preferences" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="PTT.cpp" FORMNAME="" UNITNAME="PTT.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Unit1.cpp" FORMNAME="FormMain" UNITNAME="Unit1" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Varicode.cpp" FORMNAME="" UNITNAME="Varicode.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="MANIFEST.RES" FORMNAME="" UNITNAME="MANIFEST.RES" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Receiver.cpp" FORMNAME="" UNITNAME="Receiver" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ResourceFile.res" FORMNAME="" UNITNAME="ResourceFile.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="DelayLine.cpp" FORMNAME="" UNITNAME="DelayLine" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SoundCard.cpp" FORMNAME="" UNITNAME="SoundCard" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="PLL.cpp" FORMNAME="" UNITNAME="PLL" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="DSSS.todo" FORMNAME="" UNITNAME="DSSS.todo" CONTAINERID="ToDo" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\DSP_Library\GoodFFT.cpp" FORMNAME="" UNITNAME="GoodFFT" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\Sequences\Sequences.cpp" FORMNAME="" UNITNAME="Sequences" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Transmitter.cpp" FORMNAME="" UNITNAME="Transmitter" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Debug.cpp" FORMNAME="" UNITNAME="Debug" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Logger32.cpp" FORMNAME="" UNITNAME="Logger32" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1040
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Excluded Packages]
+c:\programmi\borland\cbuilder6\Bin\dclclxdb60.bpl=Borland CLX Database Components
+c:\programmi\borland\cbuilder6\Bin\dclite60.bpl=Borland Integrated Translation Environment
+
+[HistoryLists\hlIncludePath]
+Count=8
+Item0=..\Stream;..\HRV;..\Sequences;..\DSP_Library;$(BCB)\include;$(BCB)\include\vcl;C:\Documenti\C++\Components
+Item1=..\HRV;..\Sequences;..\DSP_Library;$(BCB)\include;$(BCB)\include\vcl;C:\Documenti\C++\Components
+Item2=..\Sequences;..\DSP_Library;$(BCB)\include;$(BCB)\include\vcl;C:\Documenti\C++\Components
+Item3=..\DSP_Library;$(BCB)\include;$(BCB)\include\vcl;C:\Documenti\C++\Components
+Item4=..\DSP_Library;$(BCB)\include;$(BCB)\include\vcl;C:\Documenti\C++\Components;C:\Documenti\C++\DSP_Library
+Item5=$(BCB)\include;$(BCB)\include\vcl;C:\Documenti\C++\Components;C:\Documenti\C++\DSP_Library
+Item6=$(BCB)\include;$(BCB)\include\vcl;C:\Documenti\C++\Components
+Item7=..\Prova;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=5
+Item0=..\Stream;..\HRV;..\Sequences;..\DSP_Library;..\Prova;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item1=..\HRV;..\Sequences;..\DSP_Library;..\Prova;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item2=..\Sequences;..\DSP_Library;..\Prova;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item3=..\DSP_Library;..\Prova;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item4=..\Prova;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+  </IDEOPTIONS>
+</PROJECT>

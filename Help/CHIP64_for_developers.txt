@@ -1,0 +1,111 @@
+This is CHIP64 source note for developers by Antonino Porcino IZ8BLY
+====================================================================
+
+Mail me for any questions at the address: iz8bly@yahoo.it
+
+
+
+Please understand source is written for C++ Builder from Borland so I use many 
+builtin classes that come with the compiler. One of these is the "AnsiString"
+class that implements easy string manipulation.
+
+
+
+LIST OF MODULES WITH SMALL EXPLANATION
+======================================
+
+About.*:	the "About" window for the GUI
+
+ComplexFIR.*:	implements FIR filtering. I use this class also for simple
+		average filter and for delay line (a retard buffer).
+
+Debug.*:	internal debugging for tracing what routines are slow.
+
+DefineButton.*:	the small window that pops up when you define macro button in
+		the GUI
+
+DelayLine.*:	a delay line (better than the one  in ComplexFIR) for retarding
+		values by n steps.
+
+DSSS.*:		Windows application entry point "WinMain()"
+
+GoodFFT.*:	an FFT routine, used for frequency waterfall display
+
+Logger32.*:	for sending messages to Logger32 external application (logbook)
+
+Options.*:	loads/saves variables from/to a configuration .ini file so that
+		the user maintains his selections after program quits.
+
+Palette.*:	How I store colour values for turning gray scaled graphs into
+		coloured graphs. Used to make the waterfall display colorful.
+
+PLL.*:		this is the module that synchs within the single receiving 
+		symbol, making the decode at center of the "bit". Used in
+		normal PSK decoding. In Chip64 is also used to synch
+		to the receiving code (over 64 chips), making the decode 
+		at the center of best autocorrelation value.
+
+Preferences.*:	the GUI part for selecting the various parameters.
+
+PTT.*:		manages the transceiver PTT via comport or via Logger32 external
+		application.
+
+Sequences.*:	class for managing code sequences (m-sequences and gold codes).
+		It's used to build the alphabet of codes from the generating
+		m-sequences.
+
+Soundcard.*:	Soundcard I/O. Receives or sends a buffer of signed short which
+		is the type for audio samples (16 bits).
+
+Varicode.*:     the varicode table for turning the receiving bitstream into text.
+
+
+
+THE MOST IMPORTANT MODULES:
+
+Unit1.*:	The main program that manages the GUI, switches beteen TX/RX 
+		accepts text from keyboard and so on.
+
+Transmitter.*:  encodes the audio samples to send to the soundcard
+
+Receiver.*:	decodes audio coming from the soundcard
+
+Correlator*IntegerMath.*: assembly optimized versions of the correlator.
+
+
+SOME MORE DETAILED EXPLANATION ON THE LAST 3 MODULES:
+
+
+The two data modes released are Chip64 (BPSK) and Chip128 (BPSK) but the program supports
+other unreleased variants (QPSK, MSK, and FEC, CHIP16, CHIP32). They all run at 300 baud. 
+
+Modes are set from the menu GUI, "MenuChip64Click()" where all tables are filled
+according to the mode selected.
+
+Audio is sampled at 44100 and decimated to 6300 Hz in "FormMain.DecodeAudio()"
+
+Audio at 6300 Hz is then processed in "Receiver.Process_Audio()" where the 
+chips are collected and put in a buffer. The 6300 figure may be scaled 
+down according to "oversample" that can be 1,3,7,21. "21" results in higher 
+CPU load but higher precision. There is also another option "clocked" decoding 
+where the signal is decoded like it was a PSK300 (with local clock reference) 
+but without all the advantages of spread spectrum.
+
+The Correlator is where the rx_code in the buffer is compared with the known list
+of WHP codes (alphabet). Since it is a CPU-intensive process, I've optimized
+it in assembly using integer math, CPU registers and interleaved istructions
+to exploit the cpu-pipeline. Under comments "/* */" there is a piece of code 
+I used to generate the assembly source for the correlator. Optionally it is possible
+to use back the slow generic floating point routine (#define INTEGER_MATH 0)
+
+The output of the correlator gives the code with greatest confidence for that
+sampling step, its polarity and the confidence value. Such confidence values
+are collected forming the graph on the correloscope. Decoding is performed
+on the maximum point of the graph over 64 chips. The class "PLL" tells 
+where is that maximum point.
+
+The receiver also derives a frequency error correction for AFC tuning.
+
+On the transmitter side, audio is rendered at 44100 Hz. The "Transmitter.SendChar()"
+sends a single character from keyboard by calls all the nested functions that 
+write in the sample buffer for the soundcard.
